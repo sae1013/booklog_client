@@ -1,33 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  box-sizing: border-box;
+}
+.mantine-RichTextEditor-content {
+  min-height: 75vh;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.text-decorate-float-box::before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  display: inline-block;
+  background-color: rgba(192, 132, 252);
+  width: 55px;
+  height: 30px;
+  translate: 0 -10px;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text-decorate-under::before {
+  content: "";
+  position: absolute;
+  translate: 8px 18px;
+  display: inline-block;
+  width: 100px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  /* margin-right: 0.75rem; */
 }
