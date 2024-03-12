@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="py-16">
       <p className="text-xl font-bold text-decorate-float-box">*** 님의 서재</p>
-      <p className="text-lg my-3">총 N 권을 읽으셨어요!</p>
+      <p className="text-lg my-3 font-300 text-gray-500">총 N 권을 읽으셨어요!</p>
       <section className="my-8">
         <p className="text-xl mb-5 text-decorate-under">내가 읽은 책</p>
         <div className="flex space-x-4">

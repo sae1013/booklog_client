@@ -46,17 +46,30 @@ const TopBar = (props: any) => {
   };
 
   return (
-    <header className="p-4 flex items-center border border-gray-900">
+    <header className="py-4 px-12 flex items-center border-b-1 border-gray-900">
       <div className="hover:cursor-pointer" onClick={() => router.push("/")}>
         BookLog
       </div>
 
-      <div className="flex items-center ml-auto space-x-5">
+      <div className="flex items-center ml-auto space-x-2">
         {isLogin && isPending ? (
           <LoginTopBarView />
         ) : (
           <>
-            <div>서재</div>
+            <CtaButton
+              onClick={() => {
+                router.push("/login");
+              }}
+            >
+              <span>통계</span>
+            </CtaButton>
+            <CtaButton
+              onClick={() => {
+                router.push("/login");
+              }}
+            >
+              <span>서재</span>
+            </CtaButton>
 
             {!user ? (
               <CtaButton

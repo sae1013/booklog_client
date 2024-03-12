@@ -1,8 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Pretendard font */
+@import url("https://cdn.jsdelivr.net/npm/pretendard/dist/web/static/pretendard.css");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
 html {
   box-sizing: border-box;
+}
+body {
+  font-family: "Pretendard", "Noto Sans KR", "sans-serif" !important;
 }
 .mantine-RichTextEditor-content {
   min-height: 75vh;
