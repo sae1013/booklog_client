@@ -10,8 +10,19 @@ export default function Home() {
   return (
     <main className="py-16">
       <p className="text-xl font-bold text-decorate-float-box">*** 님의 서재</p>
-      <p className="text-lg my-3 font-300 text-gray-500">총 N 권을 읽으셨어요!</p>
-      <section className="my-8">
+      <p className="text-lg my-3 font-300 text-gray-500">
+        총 N 권을 읽으셨어요!
+      </p>
+      <section>
+        <p className="text-xl mb-5 text-decorate-under">읽고있는 책</p>
+        <div className="flex space-x-4">
+          <div className="w-52 h-72 bg-red-400"></div>
+          <div className="w-52 h-72 bg-red-400"></div>
+          <div className="w-52 h-72 bg-red-400"></div>
+          <div className="w-52 h-72 bg-red-400"></div>
+        </div>
+      </section>
+      <section className="my-10">
         <p className="text-xl mb-5 text-decorate-under">내가 읽은 책</p>
         <div className="flex space-x-4">
           <div className="flex flex-col items-center">
@@ -20,7 +31,7 @@ export default function Home() {
                 alt="book"
                 src="/book.png"
                 width={200}
-                height={200}
+                height={296}
               ></Image>
             </div>
             <div className="relative transform -translate-y-6  -z-10 shadow-200">

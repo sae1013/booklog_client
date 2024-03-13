@@ -11,6 +11,7 @@ import { userStore } from "../store/userStore";
 import Image from "next/image";
 import TopBarDropdownMenu from "./ProfileDropdownMenu";
 import ProfileWithDropdown from "./ProfileWithDropdown";
+import { IoLibrary } from "react-icons/io5";
 
 const TopBar = (props: any) => {
   const jwtCookie = getCookie("jwt");
@@ -46,10 +47,16 @@ const TopBar = (props: any) => {
   };
 
   return (
-    <header className="py-4 px-12 flex items-center border-b-1 border-gray-900">
-      <div className="hover:cursor-pointer" onClick={() => router.push("/")}>
-        BookLog
-      </div>
+    <header className="py-4 px-12 flex items-center border-b-1 shadow-md">
+      <Image
+        alt="logo"
+        className="hover:cursor-pointer"
+        src="/logo_v3.svg"
+        priority
+        width={100}
+        height={50}
+        onClick={() => router.push("/")}
+      ></Image>
 
       <div className="flex items-center ml-auto space-x-2">
         {isLogin && isPending ? (
@@ -63,6 +70,7 @@ const TopBar = (props: any) => {
             >
               <span>통계</span>
             </CtaButton>
+            {/* <IoLibrary size={30} /> */}
             <CtaButton
               onClick={() => {
                 router.push("/login");
