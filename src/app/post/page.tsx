@@ -44,21 +44,23 @@ const PostWritePage = () => {
   };
 
   return (
-    <>
-      <header className="p-10 w-full">
-        <DropDownMenu></DropDownMenu>
-        <input
-          placeholder="제목을 입력하세요"
-          className="pt-5 w-full text-2xl text-gray-900 focus:outline-none"
-        ></input>
-      </header>
-      <main>
-        <Editor
-          editor={editor as EditorType}
-          clickInsideEditor={clickInsideEditor}
-        ></Editor>
-      </main>
-      <footer className="bg-gray-100 font-normal text-lg py-4 px-6 flex items-center sticky bottom-0 z-50">
+    <section className="flex flex-col justify-center items-center">
+      <div className="max-w-280">
+        <header className="p-10 w-full">
+          <DropDownMenu></DropDownMenu>
+          <input
+            placeholder="제목을 입력하세요"
+            className="pt-5 w-full text-2xl text-gray-900 focus:outline-none"
+          ></input>
+        </header>
+        <main>
+          <Editor
+            editor={editor as EditorType}
+            clickInsideEditor={clickInsideEditor}
+          ></Editor>
+        </main>
+      </div>
+      <footer className="bg-gray-100 font-normal text-lg py-4 px-6 flex items-center sticky bottom-0 z-50 w-screen">
         <CtaButton
           styles="ml-auto rounded-3xl text-red-500 bg-white border border-red-300"
           onClick={() => {
@@ -76,7 +78,7 @@ const PostWritePage = () => {
           <span>게시하기</span>
         </CtaButton>
       </footer>
-    </>
+    </section>
   );
 };
 
