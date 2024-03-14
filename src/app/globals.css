@@ -14,7 +14,7 @@ body {
 }
 .mantine-RichTextEditor-root {
   border: none !important;
-  width: 80%;
+  /* width: 80%; */
 }
 .mantine-RichTextEditor-content {
   min-height: 75vh;

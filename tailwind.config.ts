@@ -33,6 +33,12 @@ const config: Config = {
           500: "#ede1ce",
         },
       },
+      width: {
+        "280": "70rem",
+      },
+      maxWidth: {
+        "280": "70rem",
+      },
     },
   },
   plugins: [],

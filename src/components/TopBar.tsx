@@ -47,7 +47,7 @@ const TopBar = (props: any) => {
   };
 
   return (
-    <header className="py-4 px-12 flex items-center border-b-1 shadow-md">
+    <header className="py-4 px-12 flex items-center border-b-1 border-neutral-200">
       <Image
         alt="logo"
         className="hover:cursor-pointer"

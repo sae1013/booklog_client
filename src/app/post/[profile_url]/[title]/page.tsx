@@ -42,9 +42,25 @@ const PostViewerPage = (props: any) => {
     editable: false,
   });
   return (
-    <section className="flex flex-col justify-center items-center mt-10">
-      <Editor editor={editor as EditorType} use="view"></Editor>
-    </section>
+    <>
+      <section className="mt-10 flex justify-center items-center">
+        <div className="max-w-280">
+          <div className="border-b border-neutral-300 mb-20 pb-8">
+            <h1 className=" font-bold text-2xl">
+              The Infinite Shades of Saudade Blue
+            </h1>
+            <div className="flex mt-10">
+              <div className=" w-14 h-14 rounded-full bg-gray-500"></div>
+              <div className="ml-5 flex-1">
+                <h3>Maria Garcia</h3>
+                <p>published Feb 12,2024</p>
+              </div>
+            </div>
+          </div>
+          <Editor editor={editor as EditorType} use="view"></Editor>
+        </div>
+      </section>
+    </>
   );
 };
 
