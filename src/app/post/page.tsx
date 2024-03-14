@@ -29,6 +29,7 @@ const PostWritePage = () => {
       Highlight,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
     ],
+    // editable: false,
   });
 
   const clickInsideEditor = () => {
@@ -38,7 +39,7 @@ const PostWritePage = () => {
   const submitHTML = async (html: string) => {
     console.log(html);
     const response = await AxiosInstance.post("/post", {
-      data: html,
+      content: html,
     });
   };
 

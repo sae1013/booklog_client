@@ -12,6 +12,10 @@ html {
 body {
   font-family: "Pretendard", "Noto Sans KR", "sans-serif" !important;
 }
+.mantine-RichTextEditor-root {
+  border: none !important;
+  width: 80%;
+}
 .mantine-RichTextEditor-content {
   min-height: 75vh;
 }
