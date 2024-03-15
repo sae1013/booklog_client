@@ -1,16 +1,17 @@
-import { useState, FormEvent, useRef } from "react";
+import { useState, FormEvent, useRef, useEffect } from "react";
 import Dropdown from "@/components/Dropdown";
 import Image from "next/image";
 import AxiosInstance from "@/utils/AxiosInstance";
-import { Book } from "@/utils/types";
+import { Book } from "@/store/types";
 import { FaCircleCheck as IconFaCircleCheck } from "react-icons/fa6";
+import { useRecoilState } from "recoil";
+import { selectedBookStore } from "@/store/stores";
 
 export default function BookSearchModal() {
   const inputRef = useRef<HTMLInputElement>(null);
-
+  const [selectedBook, setSelectedBook] = useRecoilState(selectedBookStore);
   const [searchOption, setSearchOption] = useState<"title" | "isbn">("title");
   const [searchedBooks, setSearchedBooks] = useState<Book[]>([]);
-  const [selectedBook, setSelectedBook] = useState<Book>();
 
   const fetchData = async (userInput: string) => {
     try {
@@ -102,7 +103,6 @@ export default function BookSearchModal() {
               >
                 {selectedBook?.isbn === book.isbn && (
                   <IconFaCircleCheck
-                    // style={{ position: "absolute" }}
                     className="absolute right-4 top-4"
                     fill="green"
                     size={30}
@@ -116,9 +116,6 @@ export default function BookSearchModal() {
                   height={200}
                   className="outline outline-neutral-300"
                   src={book.image}
-                  onClick={() => {
-                    setSelectedBook(book);
-                  }}
                 ></Image>
                 <div className="p-4 space-y-2">
                   <h1>{book.title}</h1>

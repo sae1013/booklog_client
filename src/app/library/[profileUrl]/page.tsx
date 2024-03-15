@@ -7,15 +7,25 @@ import { Button, Text, Modal } from "@mantine/core";
 import { modals } from "@mantine/modals";
 import { useDisclosure } from "@mantine/hooks";
 import BookSearchModal from "@/components/BookSearchModal";
+import { useRecoilState } from "recoil";
+import { selectedBookStore } from "@/store/stores";
 
 export default function LibaryPage() {
+  const [selectedBook, setSelectedBook] = useRecoilState(selectedBookStore);
+
+  const handleClickConfirm = async () => {
+    selectedBook; // Add 관심있는책.
+    setSelectedBook(null);
+  };
   const openModal = () =>
     modals.openConfirmModal({
       title: "도서검색",
       children: <BookSearchModal />,
       labels: { confirm: "선택", cancel: "취소" },
-      onCancel: () => console.log("Cancel"),
-      onConfirm: () => console.log("Confirmed"),
+      onCancel: () => {
+        setSelectedBook(null);
+      },
+      onConfirm: handleClickConfirm,
     });
   return (
     <main className="py-16">
