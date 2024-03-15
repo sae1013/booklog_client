@@ -7,6 +7,8 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import TopBar from "@/components/TopBar";
 import "@mantine/core/styles.css";
 import "@mantine/tiptap/styles.css";
+import { MantineProvider } from "@mantine/core";
+import { ModalsProvider } from "@mantine/modals";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -20,8 +22,12 @@ export default function RootLayout({
       <RecoilRoot>
         <QueryClientProvider client={queryClient}>
           <body className={inter.className}>
-            <TopBar></TopBar>
-            <div className="px-6">{children}</div>
+            <MantineProvider>
+              <ModalsProvider>
+                <TopBar></TopBar>
+                <div className="px-6">{children}</div>
+              </ModalsProvider>
+            </MantineProvider>
           </body>
         </QueryClientProvider>
       </RecoilRoot>

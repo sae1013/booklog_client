@@ -16,6 +16,8 @@ import TextStyle from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 import { Editor } from "@/components/Editor";
 import { Editor as EditorType } from "@tiptap/react";
+import { useDisclosure } from "@mantine/hooks";
+import { Modal, Button } from "@mantine/core";
 
 type PostViewerPageProps = {
   // profile_url: string;
@@ -41,6 +43,7 @@ const PostViewerPage = (props: any) => {
     content,
     editable: false,
   });
+
   return (
     <>
       <section className="mt-10 flex justify-center items-center">
