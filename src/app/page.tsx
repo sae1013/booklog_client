@@ -2,10 +2,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-// F0E7D9
-// -5px 3px 8px rgba(0,0,0,0.5)
-// F5F0E8
-// 0 20px 20px rgba(0,0,0,0.15)
 export default function Home() {
   return (
     <main className="py-16">
@@ -26,7 +22,7 @@ export default function Home() {
         <p className="text-xl mb-5 text-decorate-under">내가 읽은 책</p>
         <div className="flex space-x-4">
           <div className="flex flex-col items-center">
-            <div className=" shadow-horizontal">
+            <div className="shadow-horizontal">
               <Image
                 alt="book"
                 src="/book.png"

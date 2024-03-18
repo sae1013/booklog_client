@@ -4,7 +4,6 @@ import Image from "next/image";
 import AxiosInstance from "@/utils/AxiosInstance";
 import { Book } from "@/store/types";
 import { FaCircleCheck as IconFaCircleCheck } from "react-icons/fa6";
-import { useRecoilState } from "recoil";
 import { useSelectedBookStore } from "@/store/stores";
 
 export default function BookSearchModal() {

@@ -1,7 +1,7 @@
-import { userStore } from "@/store/userStore";
+import { useUserStore } from "@/store/stores";
 import AxiosInstance from "@/utils/AxiosInstance";
 import { useRef, useEffect, Dispatch, SetStateAction, forwardRef } from "react";
-import { useRecoilState } from "recoil";
+
 import { LegacyRef } from "react";
 
 interface TopBarDropdownMenuProps {
@@ -11,12 +11,12 @@ export default forwardRef(function ProfileDropdownMenu(
   props: TopBarDropdownMenuProps,
   ref: LegacyRef<HTMLDivElement>
 ) {
-  const [user, setUser] = useRecoilState(userStore);
+  const { user, setUser, clearUser } = useUserStore();
 
   const clickMenuItem = async (event: MouseEvent) => {
     if (event.target instanceof Node && event.target.id == "signout") {
       const { data } = await AxiosInstance.get("/auth/logout");
-      setUser(null);
+      clearUser();
     }
   };
   return (

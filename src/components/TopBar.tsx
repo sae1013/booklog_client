@@ -1,23 +1,19 @@
 "use client";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { getCookie } from "cookies-next";
 import CtaButton from "./base/CtaButton";
 import AxiosInstance from "@/utils/AxiosInstance";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { useRecoilState } from "recoil";
 import { useEffect, useRef, useState } from "react";
-import { userStore } from "../store/userStore";
 import Image from "next/image";
-import TopBarDropdownMenu from "./ProfileDropdownMenu";
 import ProfileWithDropdown from "./ProfileWithDropdown";
-import { IoLibrary } from "react-icons/io5";
+import { useUserStore } from "@/store/stores";
 
 const TopBar = (props: any) => {
   const jwtCookie = getCookie("jwt");
   const isLogin = !!jwtCookie;
   const router = useRouter();
-  const [user, setUser] = useRecoilState(userStore);
+  const { user, setUser } = useUserStore();
   const [openDropdownMenu, setOpendropdownMenu] = useState(false);
   const dropdownMenuWrapperRef = useRef<HTMLDivElement | null>(null);
 

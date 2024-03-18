@@ -4,12 +4,11 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { CLIENT_SERVER } from "@/utils/urls";
 import { openCenteredPopup } from "@/utils/popup";
-import { userStore } from "@/store/userStore";
-import { useRecoilState } from "recoil";
+import { useUserStore } from "@/store/stores";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [user, setUser] = useRecoilState(userStore);
+  const { user, setUser, clearUser } = useUserStore();
 
   const handleReceiveMessage = (event: MessageEvent) => {
     if (event.origin === CLIENT_SERVER) return;
