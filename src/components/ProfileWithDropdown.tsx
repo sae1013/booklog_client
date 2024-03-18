@@ -1,3 +1,4 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
 import ProfileDropdownMenu from "./ProfileDropdownMenu";
 import Image from "next/image";
@@ -7,8 +8,8 @@ interface ProfileDropdownMenu {
 }
 export default function ProfileWithDropdown({ onClick }: ProfileDropdownMenu) {
   const [showDropdown, setShowDropdown] = useState(false);
-  const ProfileRef = useRef<null | HTMLElement>(null);
-  const dropdownMenuRef = useRef<null | HTMLElement>(null);
+  const ProfileRef = useRef<HTMLDivElement>(null);
+  const dropdownMenuRef = useRef<HTMLDivElement>(null);
 
   const outsideClickListener = (event: MouseEvent) => {
     if (
@@ -27,7 +28,7 @@ export default function ProfileWithDropdown({ onClick }: ProfileDropdownMenu) {
     };
   });
 
-  const toggleDropdownMenu = (event: MouseEvent) => {
+  const toggleDropdownMenu = (event: React.MouseEvent) => {
     setShowDropdown((prev) => !prev);
   };
   return (

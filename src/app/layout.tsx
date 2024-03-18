@@ -22,7 +22,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <QueryClientProvider client={queryClient}>
-          <div className="px-6">{children}</div>
           <MantineProvider>
             <ModalsProvider>
               <TopBar></TopBar>

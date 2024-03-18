@@ -31,9 +31,6 @@ export default function BookSearchModal() {
     const data = await fetchData(userInput as string);
     setSearchedBooks(data.items);
   };
-  useEffect(() => {
-    console.log("rerender", selectedBook);
-  });
 
   return (
     <form

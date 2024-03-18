@@ -1,3 +1,4 @@
+"use client";
 import { useUserStore } from "@/store/stores";
 import AxiosInstance from "@/utils/AxiosInstance";
 import { useRef, useEffect, Dispatch, SetStateAction, forwardRef } from "react";
@@ -5,7 +6,7 @@ import { useRef, useEffect, Dispatch, SetStateAction, forwardRef } from "react";
 import { LegacyRef } from "react";
 
 interface TopBarDropdownMenuProps {
-  onClick: () => void;
+  onClick?: () => void;
 }
 export default forwardRef(function ProfileDropdownMenu(
   props: TopBarDropdownMenuProps,
@@ -13,8 +14,9 @@ export default forwardRef(function ProfileDropdownMenu(
 ) {
   const { user, setUser, clearUser } = useUserStore();
 
-  const clickMenuItem = async (event: MouseEvent) => {
-    if (event.target instanceof Node && event.target.id == "signout") {
+  const clickMenuItem = async (event: React.MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (target.id === "signout") {
       const { data } = await AxiosInstance.get("/auth/logout");
       clearUser();
     }

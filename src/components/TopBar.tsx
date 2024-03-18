@@ -14,8 +14,8 @@ const TopBar = (props: any) => {
   const isLogin = !!jwtCookie;
   const router = useRouter();
   const { user, setUser } = useUserStore();
-  const [openDropdownMenu, setOpendropdownMenu] = useState(false);
-  const dropdownMenuWrapperRef = useRef<HTMLDivElement | null>(null);
+  // const [openDropdownMenu, setOpendropdownMenu] = useState(false);
+  // const dropdownMenuWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["user"],
@@ -27,9 +27,9 @@ const TopBar = (props: any) => {
     enabled: isLogin,
   });
 
-  const toggleDropdown = () => {
-    setOpendropdownMenu((prev) => !prev);
-  };
+  // const toggleDropdown = () => {
+  //   setOpendropdownMenu((prev) => !prev);
+  // };
 
   const LoginTopBarView = () => {
     return (
@@ -43,7 +43,7 @@ const TopBar = (props: any) => {
   };
 
   return (
-    <header className="py-4 px-12 flex items-center border-b-1 border-neutral-200">
+    <div className="py-4 px-12 flex items-center border-b-1 border-neutral-200">
       <Image
         alt="logo"
         className="hover:cursor-pointer"
@@ -53,7 +53,6 @@ const TopBar = (props: any) => {
         height={50}
         onClick={() => router.push("/")}
       ></Image>
-
       <div className="flex items-center ml-auto space-x-2">
         {isLogin && isPending ? (
           <LoginTopBarView />
@@ -89,7 +88,7 @@ const TopBar = (props: any) => {
           </>
         )}
       </div>
-    </header>
+    </div>
   );
 };
 
