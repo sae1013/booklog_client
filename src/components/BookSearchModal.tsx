@@ -5,11 +5,13 @@ import AxiosInstance from "@/utils/AxiosInstance";
 import { Book } from "@/store/types";
 import { FaCircleCheck as IconFaCircleCheck } from "react-icons/fa6";
 import { useRecoilState } from "recoil";
-import { selectedBookStore } from "@/store/stores";
+import { useSelectedBookStore } from "@/store/stores";
 
 export default function BookSearchModal() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [selectedBook, setSelectedBook] = useRecoilState(selectedBookStore);
+  const { selectedBook, setSelectedBook, clearSelectedBook } =
+    useSelectedBookStore();
+
   const [searchOption, setSearchOption] = useState<"title" | "isbn">("title");
   const [searchedBooks, setSearchedBooks] = useState<Book[]>([]);
 
@@ -30,6 +32,9 @@ export default function BookSearchModal() {
     const data = await fetchData(userInput as string);
     setSearchedBooks(data.items);
   };
+  useEffect(() => {
+    console.log("rerender", selectedBook);
+  });
 
   return (
     <form

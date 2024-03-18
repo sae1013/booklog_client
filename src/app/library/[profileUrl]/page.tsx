@@ -8,23 +8,32 @@ import { modals } from "@mantine/modals";
 import { useDisclosure } from "@mantine/hooks";
 import BookSearchModal from "@/components/BookSearchModal";
 import { useRecoilState } from "recoil";
-import { selectedBookStore } from "@/store/stores";
-
+import AxiosInstance from "@/utils/AxiosInstance";
+import { useSelectedBookStore } from "@/store/stores";
+import { useRef } from "react";
 export default function LibaryPage() {
-  const [selectedBook, setSelectedBook] = useRecoilState(selectedBookStore);
+  const { selectedBook, setSelectedBook, clearSelectedBook } =
+    useSelectedBookStore();
 
-  const handleClickConfirm = async () => {
-    selectedBook; // Add 관심있는책.
-    setSelectedBook(null);
+  const selectedBookRef = useRef(selectedBook);
+  const handleClickConfirm = () => {
+    AxiosInstance.post("/book/save", {
+      data: selectedBookRef.current,
+    });
   };
+  useEffect(() => {
+    selectedBookRef.current = selectedBook;
+  }, [selectedBook]);
+
   const openModal = () =>
     modals.openConfirmModal({
       title: "도서검색",
       children: <BookSearchModal />,
       labels: { confirm: "선택", cancel: "취소" },
-      onCancel: () => {
-        setSelectedBook(null);
+      onClose: () => {
+        clearSelectedBook();
       },
+
       onConfirm: handleClickConfirm,
     });
   return (
