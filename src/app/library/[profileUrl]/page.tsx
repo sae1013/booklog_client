@@ -42,7 +42,7 @@ export default function LibaryPage() {
       <p className="text-lg my-3 font-300 text-gray-500">
         총 N 권을 읽으셨어요!
       </p>
-      <section>
+      {/* <section>
         <p className="text-xl mb-5 text-decorate-under">읽고있는 책</p>
         <div className="flex space-x-4">
           <div className="w-52 h-72 bg-red-400"></div>
@@ -50,7 +50,7 @@ export default function LibaryPage() {
           <div className="w-52 h-72 bg-red-400"></div>
           <div onClick={openModal} className="w-52 h-72 bg-red-400"></div>
         </div>
-      </section>
+      </section> */}
       <section className="my-10">
         <p className="text-xl mb-5 text-decorate-under">내가 읽은 책</p>
         <div className="flex space-x-4">
@@ -63,25 +63,11 @@ export default function LibaryPage() {
                 height={296}
               ></Image>
             </div>
-            <div className="relative transform -translate-y-6  -z-10 shadow-200">
-              <div className="bg-beige-500 w-80 h-10 block"></div>
-              <div className="bg-beige-400 w-80 h-5 block"></div>
-            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <div className="shadow-horizontal">
-              <Image
-                alt="book"
-                src="/book.png"
-                width={200}
-                height={200}
-              ></Image>
-            </div>
-            <div className="relative transform -translate-y-6 -z-10 shadow-200">
-              <div className="bg-beige-500 w-80 h-10 block"></div>
-              <div className="bg-beige-400 w-80 h-5 block"></div>
-            </div>
-          </div>
+        </div>
+        <div className="relative transform -translate-y-6  -z-10 shadow-200">
+          <div className="bg-beige-500 w-full h-10 block"></div>
+          <div className="bg-beige-400 w-full h-5 block"></div>
         </div>
       </section>
     </main>
