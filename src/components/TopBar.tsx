@@ -4,7 +4,6 @@ import CtaButton from "./base/CtaButton";
 import AxiosInstance from "@/utils/AxiosInstance";
 import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ProfileWithDropdown from "./ProfileWithDropdown";
 import { useUserStore } from "@/store/stores";
@@ -14,8 +13,6 @@ const TopBar = (props: any) => {
   const isLogin = !!jwtCookie;
   const router = useRouter();
   const { user, setUser } = useUserStore();
-  // const [openDropdownMenu, setOpendropdownMenu] = useState(false);
-  // const dropdownMenuWrapperRef = useRef<HTMLDivElement | null>(null);
 
   const { isPending, error, data } = useQuery({
     queryKey: ["user"],
@@ -26,10 +23,6 @@ const TopBar = (props: any) => {
     },
     enabled: isLogin,
   });
-
-  // const toggleDropdown = () => {
-  //   setOpendropdownMenu((prev) => !prev);
-  // };
 
   const LoginTopBarView = () => {
     return (
